@@ -30,10 +30,10 @@ detect_zeroes.o: detect_zeroes.c
 	$(CC) $(CFLAGS) -c $? -o $@
 
 log2_generator: log2_generator.o log2_lshift16.o
-	$(CC) $(CFLAGS) -o $@ $?
+	$(CC) $(CFLAGS) -o $@ $? -lm
 
 entropy_calc: entropy_calc.o avg_mean.o shannon_f.o shannon_i.o log2_lshift16.o heuristic.o sort.o detect_zeroes.o
-	$(CC) $(CFLAGS) -o $@ $?
+	$(CC) $(CFLAGS) -o $@ $? -lm
 
 
 clean: ## Cleanup
